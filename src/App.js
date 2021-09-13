@@ -1,9 +1,5 @@
 import './App.css';
-
-function ProductLine(props) {
-    const {productName} = props;
-    return <div>{productName}</div>
-}
+import {ProductLine} from "./components/ProductLine";
 
 function App() {
     return (
