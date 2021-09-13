@@ -9,6 +9,7 @@ This application works with the following data:
 * **CATEGORIES_DATA**: array of CATEGORY objects
 * **CATEGORY**:
   * **name**: string
+  * **products**: array van PRODUCT objects
 
 example: see [data.js](src/data/data.js)
 
