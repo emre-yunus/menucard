@@ -1,4 +1,7 @@
 export function ProductLine(props) {
-    const {productName} = props;
-    return <div>{productName}</div>
+    const {productName, price} = props;
+    return <div className="productLine">
+        <div>{productName}</div>
+        <div>{price}</div>
+    </div>
 }
