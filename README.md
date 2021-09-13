@@ -6,6 +6,9 @@ This application works with the following data:
     * **price**: number
     * **size**: number (optional)
     * **note**: string (optional)
+* **CATEGORIES_DATA**: array of CATEGORY objects
+* **CATEGORY**:
+  * **name**: string
 
 example: see [data.js](src/data/data.js)
 
