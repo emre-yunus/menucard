@@ -1,4 +1,5 @@
 import {Note} from "./Note";
+import {Col, Row} from "react-bootstrap";
 
 function ProductSize(props) {
     const {size} = props;
@@ -8,11 +9,15 @@ function ProductSize(props) {
 
 export function ProductLine(props) {
     const {product} = props;
-    return <div className="productLine">
-        <div>{product.name}
-            <ProductSize size={product.size} />
-            <Note note={product.note} />
-        </div>
-        <div>{product.price}</div>
-    </div>
+    return <>
+        <Row>
+            <Col>{product.name}<ProductSize product={product.size}/></Col>
+            <Col xs={3} md={4} className="text-end">
+                {product.price}&euro;
+            </Col>
+        </Row>
+        <Row>
+            <Col><Note note={product.note}/></Col>
+        </Row>
+    </>;
 }
