@@ -6,7 +6,11 @@ const COLLECTION_PRODUCTS = "products";
 export async function getProductsFromDb() {
     if (!firestoreDatabase) return [];
 
-    const result = await firestoreDatabase.collection(COLLECTION_PRODUCTS).get();
+    //const result = await firestoreDatabase.collection(COLLECTION_PRODUCTS).get();
+    const result = await firestoreDatabase.collection(COLLECTION_PRODUCTS)
+        .orderBy("category", "asc")
+        .orderBy("sequence", "asc")
+        .get();
     if (result.empty) return [];
 
     const data = result.docs.map(doc => ({...doc.data(), id: doc.id}));
