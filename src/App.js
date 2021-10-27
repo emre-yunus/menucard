@@ -4,22 +4,20 @@ import './App.css';
 import {Container} from "react-bootstrap";
 import {MenuNavbar} from "./components/MenuNavbar";
 import {MenuCard} from "./components/MenuCard";
-import {getProductsFromDb} from "./services/firestoreProducts";
-import {useEffect, useState} from "react";
+import {MenuDataProvider} from "./contexts/MenuDataContext";
+import React from "react";
 
-function App() {
-    const [menuFromDb, setMenuFromDb] = useState([]);
-
-    const loadMenu = async function () {
-        setMenuFromDb(await getProductsFromDb());
-    }
-
-    useEffect(() => loadMenu(), []);
-
+function ProvidedApp() {
     return <Container fluid className="p-0 p-md-3 p-lg-5">
         <MenuNavbar/>
-        <MenuCard menuData={menuFromDb}/>
-    </Container>;
+        <MenuCard/>
+    </Container>
+}
+
+function App() {
+    return <MenuDataProvider>
+        <ProvidedApp/>
+    </MenuDataProvider>
 }
 
 export default App;

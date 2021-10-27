@@ -1,8 +1,9 @@
 import {Row} from "react-bootstrap";
 import {Category} from "./Category";
+import {useMenuDataContext} from "../contexts/MenuDataContext";
 
-export function MenuCard(props) {
-    const { menuData } = props;
+export function MenuCard() {
+    const {menuData} = useMenuDataContext();
 
     return <>
         <Row className="m-0 mt-4 menu-h1"><h1> Menu</h1></Row>
